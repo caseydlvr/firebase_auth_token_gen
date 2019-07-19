@@ -35,7 +35,7 @@ async function logInWithCustomToken(uid) {
     const token = await admin.auth().createCustomToken(uid);
     await firebase.auth().signInWithCustomToken(token);
   } catch (err) {
-    console.log('Error creating custom token:', err);
+    console.error('Error creating custom token:', err);
   }
 }
 
@@ -46,7 +46,7 @@ async function handleAuthStateChanged(user) {
       const idToken = await user.getIdToken(true);
       console.log(idToken);
     } catch (err) {
-      console.log('Error getting ID token:', err);
+      console.error('Error getting ID token:', err);
     }
   }
 }
