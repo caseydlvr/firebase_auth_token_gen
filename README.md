@@ -4,7 +4,11 @@ A Node script to generate a valid Firebase Auth bearer token for a given user. T
 
 ## Usage
 
-`node firebase_auth_token_gen.js FIREBASE_UID`
+`node firebase_auth_token_gen.js FIREBASE_UID [-c]`
+
+### Arguments
+
+- `-c`: copies the ID token to the system clipboard
 
 ### .env File Configuration
 
