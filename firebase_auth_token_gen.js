@@ -6,6 +6,20 @@ const dotenvConfig = require('dotenv').config();
 const admin = require('firebase-admin');
 const firebase = require('firebase');
 const serviceAccount = require(process.env.FIREBASE_SERVICE_ACCOUNT_PATH);
+const argv = require('yargs')
+  .command('uid', 'Firebase UID of user to generate auth token')
+  .option('copy', {
+    alias: 'c',
+    description: 'Copy the auth token to the system clipboard',
+    type: 'boolean',
+    default: false,
+  })
+  .demandCommand(1, 'A Firebase UID argument is required')
+  .usage('Usage: node firebase_auth_token_gen.js FIREBASE_UID [-c]')
+  .help()
+  .alias('help', 'h')
+  .alias('version', 'v')
+  .argv;
 
 const adminConfig = {
   credential: admin.credential.cert(serviceAccount),
@@ -38,7 +52,7 @@ async function handleAuthStateChanged(user) {
 }
 
 function main() {
-  const [,, uid] = process.argv;
+  const uid = argv._[0];
 
   admin.initializeApp(adminConfig);
   firebase.initializeApp(firebaseConfig);
