@@ -1,0 +1,24 @@
+{
+  "name": "firebase_auth_token_gen",
+  "version": "1.0.0",
+  "description": "Node script to generate a valid Firebase Auth bearer token for a given user",
+  "main": "firebase_auth_token_gen.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caseydlvr/firebase_auth_token_gen.git"
+  },
+  "author": "Casey de la Vega-Rawson",
+  "license": "GPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/caseydlvr/firebase_auth_token_gen/issues"
+  },
+  "homepage": "https://github.com/caseydlvr/firebase_auth_token_gen#readme",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "firebase": "^6.3.1",
+    "firebase-admin": "^8.2.0"
+  }
+}
