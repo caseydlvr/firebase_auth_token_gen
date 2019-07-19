@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/caseydlvr/firebase_auth_token_gen#readme",
   "dependencies": {
+    "clipboardy": "^2.1.0",
     "dotenv": "^8.0.0",
     "firebase": "^6.3.1",
     "firebase-admin": "^8.2.0"
