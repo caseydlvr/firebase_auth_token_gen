@@ -6,6 +6,7 @@ const dotenvConfig = require('dotenv').config();
 const admin = require('firebase-admin');
 const firebase = require('firebase');
 const serviceAccount = require(process.env.FIREBASE_SERVICE_ACCOUNT_PATH);
+const clipboardy = require('clipboardy');
 const argv = require('yargs')
   .command('uid', 'Firebase UID of user to generate auth token')
   .option('copy', {
@@ -45,6 +46,9 @@ async function handleAuthStateChanged(user) {
     try {
       const idToken = await user.getIdToken(true);
       console.log(idToken);
+      if (argv.copy) {
+        clipboardy.writeSync(idToken);
+      }
     } catch (err) {
       console.error('Error getting ID token:', err);
     }
