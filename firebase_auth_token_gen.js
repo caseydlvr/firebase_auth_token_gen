@@ -2,10 +2,10 @@
 
 'use strict';
 
-const dotenvConfig = require('dotenv').config();
+const { apiKey, authDomain, projectId, serviceAccountPath } = require('./config.js');
 const admin = require('firebase-admin');
 const firebase = require('firebase');
-const serviceAccount = require(process.env.FIREBASE_SERVICE_ACCOUNT_PATH);
+const serviceAccount = require(serviceAccountPath);
 const clipboardy = require('clipboardy');
 const argv = require('yargs')
   .command('uid', 'Firebase UID of user to generate auth token')
@@ -25,11 +25,7 @@ const argv = require('yargs')
 const adminConfig = {
   credential: admin.credential.cert(serviceAccount),
 };
-const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.FIREBASE_PROJECT_ID,
-};
+const firebaseConfig = { apiKey, authDomain, projectId };
 
 async function logInWithCustomToken(uid) {
   try {
