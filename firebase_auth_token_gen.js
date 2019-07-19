@@ -44,7 +44,7 @@ async function handleAuthStateChanged(user) {
     // User is signed in.
     try {
       const idToken = await user.getIdToken(true);
-      console.log('ID token:', idToken);
+      console.log(idToken);
     } catch (err) {
       console.log('Error getting ID token:', err);
     }
