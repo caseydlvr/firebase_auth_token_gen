@@ -1,6 +1,6 @@
 {
   "name": "firebase_auth_token_gen",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Node script to generate a valid Firebase Auth bearer token for a given user",
   "main": "firebase_auth_token_gen.js",
   "scripts": {
